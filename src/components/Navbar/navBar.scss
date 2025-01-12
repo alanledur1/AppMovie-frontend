@@ -1,0 +1,118 @@
+.navbar {
+    background-color: rgb(253, 178, 15);
+    padding: 12px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0px 0px 10px 10px;
+
+    .navbar-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .page-title {
+        font-size: 22px;
+        color: #fff;
+        font-weight: bold;
+
+        @media (max-width: 600px) {
+            font-size: 18px; // Ajuste de tamanho de fonte para telas menores
+        }
+    }
+}
+
+.drawer-menu {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(68, 39, 0, 0.658) 0%, rgba(236, 171, 28, 0.2) 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .drawer-header {
+        background-color: rgb(255, 177, 8);
+        cursor: pointer;
+        width: 270px;
+        padding: 15px;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #3b2f15;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        @media (max-width: 600px) {
+            width: 100%;
+            font-size: 1rem; // Ajuste para telas menores
+        }
+    }
+
+    .drawer-itens {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+        padding: 15px 0;
+        align-items: flex-start;
+
+        @media (max-width: 600px) {
+            align-items: center; // Centraliza itens em telas menores
+        }
+    }
+
+    .drawer-itens li {
+        transition: transform 0.3s ease, color 0.3s ease;
+        list-style: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        padding: 12px 15px;
+        width: 100%;
+
+        &:hover {
+            color: #1d1d1d;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        &:active {
+            transform: translateX(3px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            font-size: 1rem; // Ajuste para fontes menores em dispositivos móveis
+            padding: 10px;  // Ajusta o espaçamento para caber melhor em telas menores
+        }
+    }
+
+    .drawer-itens li:focus {
+        outline: 2px solid #ecab1c;
+        outline-offset: 2px;
+    }
+
+    .drawer-itens li a {
+        color: #fff;
+        display: block;
+        transition: color 0.3s ease;
+        text-decoration: none;
+
+        &:hover {
+            color: #1d1d1d;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .drawer-header {
+            width: 100%;
+            text-align: center;
+        }
+
+        .drawer-itens {
+            align-items: center;
+            padding: 10px 5%;
+        }
+    }
+}

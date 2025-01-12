@@ -1,0 +1,37 @@
+.sobre-content {
+    padding: 20px;
+    background-color: #2b2a2a; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centralizar o texto */
+    height: 87vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #ffa500; /* Cor laranja para combinar com a paleta */
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        color: #666; /* Texto mais suave para o parágrafo */
+    }
+
+    /* Estilos adicionais para responsividade */
+    @media (max-width: 768px) {
+        padding: 15px;
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+}

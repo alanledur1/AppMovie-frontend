@@ -1,0 +1,23 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center; 
+    padding: 20px; 
+    background-color: #333; 
+    color: #fff; 
+    font-size: 14px; 
+    border-top: 2px solid #ffa500; 
+
+    a {
+        text-decoration: none;
+        margin-left: 5px;
+        color: #ffa500;
+
+        &:hover {
+            color: #919191;
+        }
+    }
+}
