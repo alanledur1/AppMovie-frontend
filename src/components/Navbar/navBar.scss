@@ -1,10 +1,11 @@
 .navbar {
-    background-color: rgb(253, 178, 15);
+    background-color: var(--navbar-bg);
     padding: 12px 3%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 0px 0px 10px 10px;
+    transition: background-color 0.3s ease;
 
     .navbar-header {
         display: flex;
@@ -12,15 +13,32 @@
         gap: 10px;
     }
 
+    
+    .page-title, .menu-icon {
+        color: var(--navbar-text);
+        font-weight: bold;
+    }
+
     .page-title {
         font-size: 22px;
-        color: #fff;
-        font-weight: bold;
-
         @media (max-width: 600px) {
             font-size: 18px; // Ajuste de tamanho de fonte para telas menores
         }
     }
+
+    .menu-icon {
+        cursor: pointer;
+    }
+
+    .theme-toggle {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--navbar-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
 }
 
 .drawer-menu {

@@ -79,7 +79,7 @@ export default function MovieCarousel({ movies = [], limit = 10 }: MovieCarousel
                             className="movie-slide" 
                             onClick={() => handleDetails(movie.id)}
                         >
-                            <img 
+                            <img
                                 src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '/placeholder.jpg'}
                                 alt={movie.title || 'No title available'}
                             />
@@ -99,5 +99,5 @@ export default function MovieCarousel({ movies = [], limit = 10 }: MovieCarousel
                 <FaArrowRight style={{ color: "#fff", fontSize: "30px" }} />
             </button>
         </div>
-    );
+    ); 
 }

@@ -28,8 +28,10 @@ export default function useSerie() {
                 fetchedSeries = [...fetchedSeries, ...response.data.results];
             }
 
+            const uniqueSeries = Array.from(new Map(fetchedSeries.map(serie => [serie.id, serie])).values());
+
             // Define o estado com as séries buscadas
-            setSeries(fetchedSeries);
+            setSeries(uniqueSeries);
         } catch (err) {
             setError(err as Error);
         } finally {

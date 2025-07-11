@@ -4,6 +4,7 @@ import SerieCard from "@/components/SerieCard/serieCard";
 import { Serie } from "@/types/serie";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaPlus } from "react-icons/fa";
+import Link from 'next/link';
 import './carouselSeries.scss';
 
 interface SeriesCarouselProps {
@@ -77,10 +78,10 @@ export default function CarouselSeries({ serie, limit = 5, totalLimit = 20 }: Se
                 ))}
                 {hasMoreItems && visibleLimit < totalLimit && (
                     <button className="more-button">
-                        <a href="/series">
+                        <Link href="/series">
                             <FaPlus /> 
                             Ver mais
-                        </a>
+                        </Link>
                     </button>
                 )}
             </div>

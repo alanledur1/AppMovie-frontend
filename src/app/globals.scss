@@ -1,9 +1,39 @@
-*{
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
+/* Ficheiro: src/globals.scss */
+
+/* 1. Defina TODAS as cores do seu tema aqui */
+:root {
+  --bg-color: #f0f2f5; /* Um branco suave para o modo claro */
+  --text-color: #1c1e21;
+  --navbar-bg: #fdb20f; /* Laranja para a navbar no modo claro */
+  --navbar-text: #ffffff;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #e4e6eb;
+  --navbar-bg: #242526; /* Um cinza escuro para a navbar no modo escuro */
+  --navbar-text: #e4e6eb;
+  --card-bg: #18191a;
+  --card-shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* 2. Aplique os estilos base ao body */
 body {
-  background-color: rgba(158, 84, 0, 0.623);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 3. Estilos globais que usam as variáveis */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 72px); /* Ajuste conforme a altura da sua navbar */
+  background-color: var(--bg-color);
 }

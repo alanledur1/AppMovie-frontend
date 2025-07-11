@@ -4,6 +4,7 @@ import './navBar.scss';
 import { useState } from 'react';
 import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 
 type DrawerProps = {
@@ -65,6 +66,7 @@ export default function Navbar() {
                     onClick={handleDrawerOpen}
                 />
                 <h1 className='page-title'>App Movies</h1>
+                <ThemeToggle />
             </div>
             <DrawerMenu isOpen={isDrawerOpen} onClose={handleDrawerClose}/>
         </nav>

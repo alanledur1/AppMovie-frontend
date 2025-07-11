@@ -41,6 +41,10 @@ export default function useMovies({ category }: UseMoviesProps) {
         fetchedMovies = [...fetchedMovies, ...response.data.results];
       }
 
+      const uniqueMovies = Array.from(new Map(fetchedMovies.map(movie => [movie.id, movie])).values());
+
+      let finalMovies = uniqueMovies;
+
       if (category === "new") {
         const currentDate = new Date();
         const trirtyDaysAgo = new Date();
@@ -52,10 +56,11 @@ export default function useMovies({ category }: UseMoviesProps) {
         });
       }
 
-      setMovies(fetchedMovies);
-      setIsLoading(false);
+      setMovies(finalMovies);
     } catch (err) {
       setError(err as Error);
+
+    } finally {
       setIsLoading(false);
     }
   };
