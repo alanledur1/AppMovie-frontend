@@ -6,12 +6,11 @@
 }
 
 .serie-list {
-    padding: 24px 3%;
+    padding: 24px 64px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
     list-style: none;
-    width: 100%;
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); // Ajuste para telas menores

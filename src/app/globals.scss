@@ -29,6 +29,10 @@ body {
   box-sizing: border-box;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
 /* 3. Estilos globais que usam as variáveis */
 .loading-container {
   display: flex;
