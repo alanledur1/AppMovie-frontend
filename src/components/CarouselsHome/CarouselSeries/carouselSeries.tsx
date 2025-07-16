@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaPlus } from "react-icons/fa";
 import Link from 'next/link';
 import './carouselSeries.scss';
+import { useRouter } from "next/navigation";
 
 interface SeriesCarouselProps {
     serie: Serie[];
@@ -17,9 +18,15 @@ export default function CarouselSeries({ serie, limit = 5, totalLimit = 20 }: Se
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visibleLimit, setVisibleLimit] = useState(limit);
     const [itemsPerPage, setItemPerPage] = useState(limit);
-    
+
     // Checks if there are more items available and if the "Show more" button should be displayed
     const hasMoreItems = serie.length > visibleLimit;
+
+    const router = useRouter();
+
+    const handleDetails = (id: number) => {
+        router.push(`/serieDetails/${id}`);
+    };
 
     // Calculates the number of items visible on the screen
     useEffect(() => {
@@ -48,13 +55,13 @@ export default function CarouselSeries({ serie, limit = 5, totalLimit = 20 }: Se
     }, [limit]);
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? 0 : prevIndex - 1
         );
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex + 1 >= serie.length ? prevIndex : prevIndex + 1
         );
     };
@@ -65,33 +72,32 @@ export default function CarouselSeries({ serie, limit = 5, totalLimit = 20 }: Se
 
     return (
         <div className="serie-carousel">
-            <button 
-                className="carousel-control left" 
-                onClick={handlePrev} 
-                disabled={currentIndex === 0} // Desativa o botão se no início
-            >
+            <button className="carousel-control left" onClick={handlePrev} disabled={currentIndex === 0}>
                 <FaArrowLeft />
             </button>
+
             <div className="carousel-content">
                 {visibleSeries.map((serieItem) => (
-                    <SerieCard key={serieItem.id} serie={serieItem} />
+                    <div
+                        key={serieItem.id}
+                        onClick={() => handleDetails(serieItem.id)}
+                        style={{ cursor: "pointer" }}    
+                    >
+                        <SerieCard serie={serieItem}/>
+                    </div>
                 ))}
-                {hasMoreItems && visibleLimit < totalLimit && (
-                    <button className="more-button">
-                        <Link href="/series">
-                            <FaPlus /> 
-                            Ver mais
-                        </Link>
-                    </button>
-                )}
             </div>
-            <button 
-                className="carousel-control right" 
-                onClick={handleNext} 
-                disabled={currentIndex + itemsPerPage >= serie.length} // Desativa o botão se no final
-            >
+            <button className="carousel-control right" onClick={handleNext} disabled={currentIndex + itemsPerPage >= serie.length}>
                 <FaArrowRight />
             </button>
+            {hasMoreItems && visibleLimit < totalLimit && (
+                <div className="more-button-wapper">
+                    <a href="/series" className="more-button">
+                        <FaPlus />
+                        <span>Ver mais</span>
+                    </a>
+                </div>
+            )}
         </div>
     );
 }

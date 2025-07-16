@@ -2,6 +2,8 @@ import { Serie } from "@/types/serie";
 import StartRating from "../StarRating/starRating";
 import './serieCard.scss';
 import { useRouter } from 'next/navigation'; // Importação correta
+import { useState } from 'react';
+import SkeletonCard from '../SkeletonCard/SkeletonCard';
 
 export interface SerieCardProps {
     serie: Serie;
@@ -9,42 +11,49 @@ export interface SerieCardProps {
 }
 
 export default function SerieCard({ serie, className }: SerieCardProps) {
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
     const router = useRouter();
 
     const handleDetails = () => {
         router.push(`/serieDetails/${serie.id}`)
     }
     return (
-        <li className={`serie-card ${className}`}>
-            <div className="serie-poster">
-                <img 
-                    src={`https://image.tmdb.org/t/p/original${serie.poster_path}`} 
-                    alt={serie.name}
-                />
-            </div>
-            <div className="serie-infos">
-                <h2 className="serie-title">
-                    {serie.name} {/* Ajustado para "name" */}
-                </h2>
-
-                {serie.vote_average > 0 &&
-                    <StartRating 
-                        rating={serie.vote_average}
+        <li className={`serie-card ${isImageLoaded ? 'loaded' : 'loading'}`}>
+            {!isImageLoaded && <SkeletonCard />}
+            <div
+                className="card-content-wrapper"
+                style={{ visibility: isImageLoaded ? 'visible' : 'hidden' }}
+                onClick={handleDetails} // Adicionado o clique aqui para abranger todo o card
+            >
+                <div className="serie-poster">
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                        alt={serie.name}
+                        onLoad={() => setIsImageLoaded(true)}
+                        onError={() => setIsImageLoaded(true)}
                     />
-                }
-
-                <div className="hidden-content">
-                    {serie.overview && 
-                        <p className="description">
-                            {serie.overview.length > 100
-                                ? `${serie.overview.substring(0, 100)}...`
-                                : serie.overview}
-                        </p>
+                </div>
+                <div className="serie-infos">
+                    <h2 className="serie-title">
+                        {serie.name}
+                    </h2>
+                    {serie.vote_average > 0 &&
+                        <StartRating
+                            rating={serie.vote_average}
+                        />
                     }
-
-                    <button className="btn-default" onClick={handleDetails}>
-                        Ver mais
-                    </button>
+                    <div className="hidden-content">
+                        {serie.overview &&
+                            <p className="description">
+                                {serie.overview.length > 100
+                                    ? `${serie.overview.substring(0, 100)}...`
+                                    : serie.overview}
+                            </p>
+                        }
+                        <button className="btn-default">
+                            Ver mais
+                        </button>
+                    </div>
                 </div>
             </div>
         </li>

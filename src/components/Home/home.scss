@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 6px);
 }
 
 .home-page {
@@ -19,7 +19,6 @@
         h1,
         h2 {
             color: var(--text-color);
-            margin-top: 20px;
             margin-bottom: 20px;
             text-align: center;
             font-size: 2rem;
@@ -28,7 +27,12 @@
 
         h2 {
             font-size: 1.5rem;
+            margin-top: 100px;
         }
+
+    }
+    .series{
+        margin-bottom: 100px;
     }
 
     // Media queries para responsividade
@@ -77,3 +81,5 @@
         }
     }
 }
+
+

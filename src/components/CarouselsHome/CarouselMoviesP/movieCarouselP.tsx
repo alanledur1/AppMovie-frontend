@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { FaArrowLeft, FaArrowRight, FaPlus } from "react-icons/fa6";
 import './movieCarouselP.scss';
 import MovieCard from "@/components/MovieCard/movieCard";
+import { useRouter } from "next/navigation";
 
 interface MovieCarouselProps {
     movie: Movie[];
@@ -13,11 +14,16 @@ interface MovieCarouselProps {
 }
 
 
-export default function MoviesPopular({movie, limit = 5, totalLimit = 10 }: MovieCarouselProps) {
+export default function MoviesPopular({ movie, limit = 5, totalLimit = 10 }: MovieCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visibleLimit, setVisibleLimit] = useState(limit);
     const [itemsPerPage, setItemPerPage] = useState(limit);
 
+    const router = useRouter();
+
+    const handleDetails = (id: number) => {
+        router.push(`/movieDetails/${id}`);
+    };
 
     // Checks if there are more items available and if the "Show more" button should be displayed
     const hasMoreItems = movie.length > visibleLimit;
@@ -49,10 +55,10 @@ export default function MoviesPopular({movie, limit = 5, totalLimit = 10 }: Movi
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex === 0? 0 : prevIndex - 1
+            prevIndex === 0 ? 0 : prevIndex - 1
         );
     };
-    
+
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex + limit >= movie.length ? prevIndex : prevIndex + 1
@@ -63,36 +69,40 @@ export default function MoviesPopular({movie, limit = 5, totalLimit = 10 }: Movi
     // Calculates the final index of the visible items
     const visibleMoviesPopular = movie.slice(currentIndex, currentIndex + itemsPerPage);
 
-    
-    return(
+
+    return (
         <div className="movie-carouselP">
-            <button
-                className="carousel-control left"
-                onClick={handlePrev}
-                disabled={currentIndex === 0}
-            >
+            <button className="carousel-control left" onClick={handlePrev} disabled={currentIndex === 0}>
                 <FaArrowLeft />
             </button>
+
             <div className="carousel-content">
                 {visibleMoviesPopular.map((movieItem) => (
-                    <MovieCard key={movieItem.id} movie={movieItem} />
+                    <div
+                        key={movieItem.id}
+                        onClick={() => handleDetails(movieItem.id)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        <MovieCard movie={movieItem} />
+                    </div>
                 ))}
-                {hasMoreItems && visibleLimit < totalLimit && (
-                    <button className="more-button">
-                        <a href="/filmes">
-                            <FaPlus />
-                            Ver mais
-                        </a>
-                    </button>
-                )}
             </div>
-            <button
-                className="carousel-control right"
-                onClick={handleNext}
-                disabled={currentIndex + itemsPerPage >= movie.length}
-            >
+
+            <button className="carousel-control right" onClick={handleNext} disabled={currentIndex + itemsPerPage >= movie.length}>
                 <FaArrowRight />
             </button>
+
+            {/* <- FORA do carousel-content */}
+            {hasMoreItems && visibleLimit < totalLimit && (
+                <div className="more-button-wrapper">
+                    <a href="/filmes" className="more-button">
+                        <FaPlus />
+                        <span>Ver mais</span>
+                    </a>
+                </div>
+            )}
         </div>
+
+
     )
 }

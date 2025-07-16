@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 6px);
 }
 
 .home-page {
@@ -22,7 +22,6 @@
 .home-page .series h1,
 .home-page .series h2 {
   color: var(--text-color);
-  margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
   font-size: 2rem;
@@ -32,6 +31,10 @@
 .home-page .movies-pop h2,
 .home-page .series h2 {
   font-size: 1.5rem;
+  margin-top: 100px;
+}
+.home-page .series {
+  margin-bottom: 100px;
 }
 @media (max-width: 1024px) {
   .home-page .movies-lan h1 {
@@ -80,6 +83,27 @@
   width: 100%;
   justify-content: center;
 }
+.movie-carousel .carousel-control {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.movie-carousel .carousel-control:hover {
+  color: #ff9800;
+}
+.movie-carousel .carousel-control.left {
+  left: 30px;
+  font-size: 40px;
+}
+.movie-carousel .carousel-control.right {
+  right: 30px;
+  font-size: 40px;
+}
 .movie-carousel .carousel-content {
   display: flex;
   overflow: hidden;
@@ -106,24 +130,6 @@
   font-size: 16px;
   color: #fff;
 }
-.movie-carousel .carousel-control {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-.movie-carousel .carousel-control:hover {
-  color: #ff9800;
-}
-.movie-carousel .carousel-control.left {
-  left: 10px;
-}
-.movie-carousel .carousel-control.right {
-  right: 10px;
-}
 @media (max-width: 1024px) {
   .movie-carousel .movie-slide {
     flex: 0 0 33.3333333333%;
@@ -137,12 +143,14 @@
     top: 40%;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 478px) {
   .movie-carousel .movie-slide {
-    flex: 0 0 100%;
-    padding: 5px;
+    flex: 0 0 33.3333333333%;
+    padding: 0;
+    margin: 0;
   }
   .movie-carousel .movie-slide img {
+    width: 50%;
     height: auto;
   }
   .movie-carousel .movie-slide h3 {
@@ -157,16 +165,18 @@
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .movie-carouselP {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
 }
 .movie-carouselP .carousel-control {
   background: transparent;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-color);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -177,52 +187,52 @@
   color: #ff9800;
 }
 .movie-carouselP .carousel-control.left {
-  left: 10px;
+  left: 45px;
 }
 .movie-carouselP .carousel-control.right {
-  right: 10px;
+  right: 45px;
 }
 .movie-carouselP .carousel-content {
   display: flex;
   align-items: center;
   overflow: hidden;
   width: 90%;
-  position: relative;
 }
-.movie-carouselP .carousel-content .movie-card {
+.movie-carouselP .carousel-content > div {
   flex: 1 1;
   margin: 0 10px;
-  border-radius: 30px;
   list-style: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.movie-carouselP .carousel-content .movie-card:hover {
+.movie-carouselP .carousel-content > div:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-.movie-carouselP .carousel-content .more-button {
+.movie-carouselP .carousel-content > div .movie-card {
+  border-radius: 30px;
+}
+.movie-carouselP .more-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.movie-carouselP .more-button {
   background-color: #007bff;
   border: none;
-  border-radius: 50%;
+  border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  z-index: 1;
+  gap: 6px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #fff;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.movie-carouselP .carousel-content .more-button a {
-  color: #fff;
-  text-decoration: none;
-}
-.movie-carouselP .carousel-content .more-button:hover {
+.movie-carouselP .more-button:hover {
   background-color: #0056b3;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 @media (max-width: 768px) {
   .movie-carouselP .carousel-control {
@@ -235,9 +245,8 @@
     margin: 0 5px;
   }
   .movie-carouselP .more-button {
-    bottom: 10px;
-    right: 10px;
     font-size: 14px;
+    padding: 8px 14px;
   }
 }
 @media (max-width: 480px) {
@@ -248,8 +257,8 @@
     margin: 0 3px;
   }
   .movie-carouselP .more-button {
-    padding: 8px;
     font-size: 12px;
+    padding: 6px 10px;
   }
 }
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -272,6 +281,26 @@
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 2/3;
+  cursor: pointer;
+  /*     &:hover {
+          cursor: pointer;
+          .movie-poster img {
+              opacity: 0.5;
+          }
+
+          .hidden-content {
+              opacity: 1;
+          }
+
+          .movie-infos:has(.description) .hidden-content{
+              height: 100px;
+          }
+
+          .movie-infos:not(:has(.description)) .hidden-content {
+              height: 50px;
+          }
+      } */
 }
 .movie-card .movie-poster img {
   width: 100%;
@@ -314,21 +343,6 @@
   cursor: pointer;
   width: 100%;
 }
-.movie-card:hover {
-  cursor: pointer;
-}
-.movie-card:hover .movie-poster img {
-  opacity: 0.5;
-}
-.movie-card:hover .hidden-content {
-  opacity: 1;
-}
-.movie-card:hover .movie-infos:has(.description) .hidden-content {
-  height: 100px;
-}
-.movie-card:hover .movie-infos:not(:has(.description)) .hidden-content {
-  height: 50px;
-}
 
 /* Estilos para telas menores (tablets e smartphones) */
 @media (max-width: 768px) {
@@ -350,7 +364,7 @@
     padding: 4px 6px; /* Botão menor */
   }
 }
-@media (max-width: 460px) {
+@media (max-width: 478px) {
   .movie-card {
     height: auto;
   }
@@ -371,6 +385,28 @@
     padding: 2px 3px; /* Botão menor */
   }
 }
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/components/SkeletonCard/SkeletonCard.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.skeleton-card {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #2a2a2a;
+  }
+  50% {
+    background-color: #3a3a3a;
+  }
+  100% {
+    background-color: #2a2a2a;
+  }
+}
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/components/SerieCard/serieCard.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -381,6 +417,26 @@
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 2/3;
+  cursor: pointer;
+  /*     &:hover {
+          cursor: pointer;
+          .serie-poster img {
+              opacity: 0.5;
+          }
+
+          .hidden-content {
+              opacity: 1;
+          }
+
+          .serie-infos:has(.description) .hidden-content{
+              height: 100px;
+          }
+
+          .serie-infos:not(:has(.description)) .hidden-content {
+              height: 50px;
+          }
+      } */
 }
 .serie-card .serie-poster img {
   width: 100%;
@@ -422,21 +478,6 @@
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
-}
-.serie-card:hover {
-  cursor: pointer;
-}
-.serie-card:hover .serie-poster img {
-  opacity: 0.5;
-}
-.serie-card:hover .hidden-content {
-  opacity: 1;
-}
-.serie-card:hover .serie-infos:has(.description) .hidden-content {
-  height: 100px;
-}
-.serie-card:hover .serie-infos:not(:has(.description)) .hidden-content {
-  height: 50px;
 }
 
 /* Estilos para telas menores (tablets e smartphones) */
@@ -486,15 +527,17 @@
 .serie-carousel {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   position: relative;
+  width: 100%;
 }
 .serie-carousel .carousel-control {
   background: transparent;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-color);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -505,10 +548,10 @@
   color: #ff9800;
 }
 .serie-carousel .carousel-control.left {
-  left: 10px;
+  left: 45px;
 }
 .serie-carousel .carousel-control.right {
-  right: 10px;
+  right: 45px;
 }
 .serie-carousel .carousel-content {
   display: flex;
@@ -517,65 +560,66 @@
   width: 90%;
   position: relative;
 }
-.serie-carousel .carousel-content .serie-card {
+.serie-carousel .carousel-content > div {
   flex: 1 1;
   margin: 0 10px;
-  border-radius: 30px;
   list-style: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.serie-carousel .carousel-content .serie-card:hover {
+.serie-carousel .carousel-content > div:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-.serie-carousel .carousel-content .more-button {
+.serie-carousel .carousel-content > div .serie-card {
+  border-radius: 30px;
+}
+.serie-carousel .more-button-wapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.serie-carousel .more-button {
   background-color: #007bff;
   border: none;
-  border-radius: 50%;
+  border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  z-index: 1;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #fff;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.serie-carousel .carousel-content .more-button a {
-  color: #fff;
-  text-decoration: none;
+.serie-carousel .more-button:hover {
+  background-color: #0069d9;
+  transform: scale(1.05);
 }
-.serie-carousel .carousel-content .more-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
-}
+
 @media (max-width: 768px) {
-  .serie-carousel .carousel-control {
+  .carousel-control {
     font-size: 20px;
   }
-  .serie-carousel .carousel-content {
+  .carousel-content {
     width: 100%;
   }
-  .serie-carousel .carousel-content .serie-card {
+  .carousel-content .serie-card {
     margin: 0 5px;
   }
-  .serie-carousel .more-button {
+  .more-button {
     bottom: 10px;
     right: 10px;
     font-size: 14px;
   }
 }
 @media (max-width: 480px) {
-  .serie-carousel .carousel-control {
+  .carousel-control {
     font-size: 18px;
   }
-  .serie-carousel .carousel-content .serie-card {
+  .carousel-content .serie-card {
     margin: 0 3px;
   }
-  .serie-carousel .more-button {
+  .more-button {
     padding: 8px;
     font-size: 12px;
   }

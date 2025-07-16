@@ -4,6 +4,8 @@
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 2 /3;
+    cursor: pointer;
 
     .movie-poster img {
         width: 100%;
@@ -51,7 +53,7 @@
         }
     }
 
-    &:hover {
+/*     &:hover {
         cursor: pointer;
         .movie-poster img {
             opacity: 0.5;
@@ -68,7 +70,7 @@
         .movie-infos:not(:has(.description)) .hidden-content {
             height: 50px;
         }
-    }
+    } */
 }
 
 /* Estilos para telas menores (tablets e smartphones) */
@@ -95,7 +97,7 @@
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 478px) {
     .movie-card {
         height: auto;
 

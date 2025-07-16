@@ -69,7 +69,7 @@ export default function MovieCarousel({ movies = [], limit = 10 }: MovieCarousel
                 disabled={currentIndex === 0}
                 aria-label="Previous movies"    
             >
-                <FaArrowLeft style={{ color: "#fff", fontSize: "30px" }} />
+                <FaArrowLeft />
             </button>
             <div className="carousel-content">
                 {visibleMovies.length > 0 ? (
@@ -96,7 +96,7 @@ export default function MovieCarousel({ movies = [], limit = 10 }: MovieCarousel
                 disabled={currentIndex >= movies.length - limit}
                 aria-label="Next movie"
             >
-                <FaArrowRight style={{ color: "#fff", fontSize: "30px" }} />
+                <FaArrowRight/>
             </button>
         </div>
     ); 

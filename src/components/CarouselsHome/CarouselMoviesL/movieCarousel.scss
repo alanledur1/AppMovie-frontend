@@ -1,97 +1,105 @@
 .movie-carousel {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    justify-content: center;
-  
-    .carousel-content {
-      display: flex;
-      overflow: hidden;
-      object-fit: cover;
-      cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+
+  .carousel-control {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    &:hover {
+      color: #ff9800; // Cor diferente ao passar o mouse
     }
-  
-    .movie-slide {
-      flex: 0 0 calc(100% / 5); // Exibe 5 itens em telas grandes
-      padding: 10px;
-      text-align: center;
-  
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s;
-  
-        &:hover {
-          transform: scale(1.02);
-        }
-      }
-  
-      h3 {
-        margin-top: 10px;
-        font-size: 16px;
-        color: #fff;
-      }
+
+    &.left {
+      left: 30px;
+      font-size: 40px;
     }
-  
-    .carousel-control {
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2;
-  
-      &:hover {
-        color: #ff9800; // Cor diferente ao passar o mouse
-      }
-  
-      &.left {
-        left: 10px;
-      }
-  
-      &.right {
-        right: 10px;
-      }
-    }
-  
-    // Media queries para telas menores
-    @media (max-width: 1024px) {
-      .movie-slide {
-        flex: 0 0 calc(100% / 3); // Exibe 3 itens em telas menores, como tablets
-      }
-    }
-  
-    @media (max-width: 768px) {
-      .movie-slide {
-        flex: 0 0 calc(100% / 2); // Exibe 2 itens em telas ainda menores
-      }
-  
-      .carousel-control {
-        top: 40%; // Ajusta a posição do controle em telas menores
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .movie-slide {
-        flex: 0 0 100%; // Exibe 1 item por vez em dispositivos móveis
-        padding: 5px;
-  
-        img {
-          height: auto; // Permite que a imagem se ajuste automaticamente
-        }
-  
-        h3 {
-          font-size: 14px; // Reduz o tamanho do texto para caber em telas menores
-        }
-      }
-  
-      .carousel-control {
-        top: 35%; // Ajusta ainda mais a posição do controle para dispositivos móveis
-      }
+
+    &.right {
+      right: 30px;
+      font-size: 40px;
     }
   }
-  
+
+  .carousel-content {
+    display: flex;
+    overflow: hidden;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .movie-slide {
+    flex: 0 0 calc(100% / 5); // Exibe 5 itens em telas grandes
+    padding: 10px;
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+
+
+
+  // Media queries para telas menores
+  @media (max-width: 1024px) {
+    .movie-slide {
+      flex: 0 0 calc(100% / 3); // Exibe 3 itens em telas menores, como tablets
+    }
+  }
+
+  @media (max-width: 768px) {
+    .movie-slide {
+      flex: 0 0 calc(100% / 2); // Exibe 2 itens em telas ainda menores
+    }
+
+    .carousel-control {
+      top: 40%; // Ajusta a posição do controle em telas menores
+    }
+  }
+
+  @media (max-width: 478px) {
+
+    
+    .movie-slide {
+      flex: 0 0 calc(100% / 3); // Exibe todos os itens em telas ainda menores
+      padding: 0;
+      margin: 0;
+
+      img {
+        width: 50%;
+        height: auto; // Permite que a imagem se ajuste automaticamente
+      }
+
+      h3 {
+        font-size: 14px; // Reduz o tamanho do texto para caber em telas menores
+      }
+    }
+
+    .carousel-control {
+      top: 35%; // Ajusta ainda mais a posição do controle para dispositivos móveis
+    }
+  }
+}
