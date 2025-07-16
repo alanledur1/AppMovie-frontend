@@ -103,22 +103,14 @@
         height: auto;
 
         .serie-poster img {
-            height: 200px; /* Reduz a altura da imagem para caber melhor */
+            height: 100%; /* Reduz a altura da imagem para caber melhor */
         }
 
         .serie-infos {
-            height: 120px; /* Reduz a área das informações */
             padding: 6px;
 
             .serie-title {
                 font-size: 12px; /* Ajusta tamanho da fonte para telas bem pequenas */
-            }
-
-            .hidden-content {
-                font-size: 10px; /* Fonte menor para caber nas telas pequenas */
-                .btn-default {
-                    padding: 2px 3px; /* Botão menor */
-                }
             }
         }
     }

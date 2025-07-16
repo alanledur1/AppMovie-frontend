@@ -46,8 +46,11 @@
   }
 }
 @media (max-width: 768px) {
+  .home-page {
+    padding: 0;
+  }
   .home-page .movies-lan h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .home-page .movies-pop h2,
   .home-page .series h2 {
@@ -56,12 +59,12 @@
   .home-page .movies-lan,
   .home-page .movies-pop,
   .home-page .series {
-    padding: 0 10px;
+    padding: 10px;
   }
 }
 @media (max-width: 480px) {
   .home-page .movies-lan h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .home-page .movies-pop h2,
   .home-page .series h2 {
@@ -92,22 +95,21 @@
   color: #fff;
   transform: translateY(-50%);
   z-index: 2;
+  font-size: 40px;
 }
 .movie-carousel .carousel-control:hover {
   color: #ff9800;
 }
 .movie-carousel .carousel-control.left {
-  left: 30px;
-  font-size: 40px;
+  left: 20px;
 }
 .movie-carousel .carousel-control.right {
-  right: 30px;
-  font-size: 40px;
+  right: 20px;
 }
 .movie-carousel .carousel-content {
   display: flex;
   overflow: hidden;
-  object-fit: cover;
+  width: 100%;
   cursor: pointer;
 }
 .movie-carousel .movie-slide {
@@ -117,7 +119,7 @@
 }
 .movie-carousel .movie-slide img {
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
@@ -132,32 +134,46 @@
 }
 @media (max-width: 1024px) {
   .movie-carousel .movie-slide {
-    flex: 0 0 33.3333333333%;
+    flex: 0 0 25%;
   }
 }
 @media (max-width: 768px) {
+  .movie-carousel .movie-carousel {
+    height: auto;
+  }
   .movie-carousel .movie-slide {
     flex: 0 0 50%;
-  }
-  .movie-carousel .carousel-control {
-    top: 40%;
-  }
-}
-@media (max-width: 478px) {
-  .movie-carousel .movie-slide {
-    flex: 0 0 33.3333333333%;
-    padding: 0;
-    margin: 0;
+    padding: 6px;
   }
   .movie-carousel .movie-slide img {
-    width: 50%;
-    height: auto;
+    border-radius: 8px;
   }
   .movie-carousel .movie-slide h3 {
     font-size: 14px;
   }
   .movie-carousel .carousel-control {
-    top: 35%;
+    top: 45%;
+    font-size: 32px;
+  }
+}
+@media (max-width: 480px) {
+  .movie-carousel .movie-carousel .carousel-control {
+    width: 30%;
+    font-size: 16px;
+  }
+  .movie-carousel .movie-carousel .carousel-content {
+    width: 30%;
+  }
+  .movie-carousel .movie-carousel .carousel-content .serie-card {
+    margin: 0 3px;
+  }
+  .movie-carousel .movie-carousel .more-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .movie-carousel .movie-carousel .movie-slide {
+    flex: 0 0 50%;
+    padding: 4px;
   }
 }
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -197,6 +213,7 @@
   align-items: center;
   overflow: hidden;
   width: 90%;
+  position: relative;
 }
 .movie-carouselP .carousel-content > div {
   flex: 1 1;
@@ -238,6 +255,14 @@
   .movie-carouselP .carousel-control {
     font-size: 20px;
   }
+  .movie-carouselP .carousel-control.left {
+    left: 20px;
+    font-size: 30px;
+  }
+  .movie-carouselP .carousel-control.right {
+    right: 20px;
+    font-size: 30px;
+  }
   .movie-carouselP .carousel-content {
     width: 100%;
   }
@@ -252,6 +277,17 @@
 @media (max-width: 480px) {
   .movie-carouselP .carousel-control {
     font-size: 18px;
+  }
+  .movie-carouselP .carousel-control.left {
+    left: 10px;
+    font-size: 25px;
+  }
+  .movie-carouselP .carousel-control.right {
+    right: 10px;
+    font-size: 25px;
+  }
+  .movie-carouselP .carousel-content {
+    width: 80%;
   }
   .movie-carouselP .carousel-content .movie-card {
     margin: 0 3px;
@@ -369,20 +405,13 @@
     height: auto;
   }
   .movie-card .movie-poster img {
-    height: 200px; /* Reduz a altura da imagem para caber melhor */
+    height: 100%; /* Reduz a altura da imagem para caber melhor */
   }
   .movie-card .movie-infos {
-    height: 120px; /* Reduz a área das informações */
     padding: 6px;
   }
   .movie-card .movie-infos .movie-title {
     font-size: 12px; /* Ajusta tamanho da fonte para telas bem pequenas */
-  }
-  .movie-card .movie-infos .hidden-content {
-    font-size: 10px; /* Fonte menor para caber nas telas pequenas */
-  }
-  .movie-card .movie-infos .hidden-content .btn-default {
-    padding: 2px 3px; /* Botão menor */
   }
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -505,20 +534,13 @@
     height: auto;
   }
   .serie-card .serie-poster img {
-    height: 200px; /* Reduz a altura da imagem para caber melhor */
+    height: 100%; /* Reduz a altura da imagem para caber melhor */
   }
   .serie-card .serie-infos {
-    height: 120px; /* Reduz a área das informações */
     padding: 6px;
   }
   .serie-card .serie-infos .serie-title {
     font-size: 12px; /* Ajusta tamanho da fonte para telas bem pequenas */
-  }
-  .serie-card .serie-infos .hidden-content {
-    font-size: 10px; /* Fonte menor para caber nas telas pequenas */
-  }
-  .serie-card .serie-infos .hidden-content .btn-default {
-    padding: 2px 3px; /* Botão menor */
   }
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -526,11 +548,10 @@
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .serie-carousel {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
+  align-items: center;
   width: 100%;
+  position: relative;
 }
 .serie-carousel .carousel-control {
   background: transparent;
@@ -595,33 +616,51 @@
   background-color: #0069d9;
   transform: scale(1.05);
 }
-
 @media (max-width: 768px) {
-  .carousel-control {
+  .serie-carousel .carousel-control {
     font-size: 20px;
   }
-  .carousel-content {
+  .serie-carousel .carousel-control.left {
+    left: 10px;
+    font-size: 30px;
+  }
+  .serie-carousel .carousel-control.right {
+    right: 10px;
+    font-size: 30px;
+  }
+  .serie-carousel .carousel-content {
     width: 100%;
   }
-  .carousel-content .serie-card {
+  .serie-carousel .carousel-content .serie-card {
     margin: 0 5px;
   }
-  .more-button {
+  .serie-carousel .more-button {
     bottom: 10px;
     right: 10px;
     font-size: 14px;
   }
 }
 @media (max-width: 480px) {
-  .carousel-control {
+  .serie-carousel .carousel-control {
     font-size: 18px;
   }
-  .carousel-content .serie-card {
+  .serie-carousel .carousel-control.left {
+    left: 10px;
+    font-size: 25px;
+  }
+  .serie-carousel .carousel-control.right {
+    right: 10px;
+    font-size: 25px;
+  }
+  .serie-carousel .carousel-content {
+    width: 80%;
+  }
+  .serie-carousel .carousel-content .serie-card {
     margin: 0 3px;
   }
-  .more-button {
-    padding: 8px;
+  .serie-carousel .more-button {
     font-size: 12px;
+    padding: 6px 10px;
   }
 }
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

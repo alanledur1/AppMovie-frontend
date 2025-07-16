@@ -37,6 +37,7 @@
     align-items: center;
     overflow: hidden;
     width: 90%;
+    position: relative;
 
 
     >div {
@@ -86,6 +87,16 @@
   @media (max-width: 768px) {
     .carousel-control {
       font-size: 20px;
+
+      &.left {
+        left: 20px;
+        font-size: 30px;
+      }
+
+      &.right {
+        right: 20px;
+        font-size: 30px;
+      }
     }
 
     .carousel-content {
@@ -103,11 +114,25 @@
   }
 
   @media (max-width: 480px) {
+
     .carousel-control {
+
+      &.left {
+        left: 10px;
+        font-size: 25px;
+      }
+
+      &.right {
+        right: 10px;
+        font-size: 25px;
+      }
+
       font-size: 18px;
     }
 
     .carousel-content {
+      width: 80%;
+
       .movie-card {
         margin: 0 3px;
       }

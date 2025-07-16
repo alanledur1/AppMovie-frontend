@@ -1,85 +1,84 @@
 .loading-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 6px);
 }
 
 .home-page {
-    padding: 20px;
-    width: 100%;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .movies-lan,
+  .movies-pop,
+  .series {
+    h1,
+    h2 {
+      color: var(--text-color);
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 100px;
+    }
+  }
+
+  .series {
+    margin-bottom: 100px;
+  }
+
+  // Responsividade
+  @media (max-width: 1024px) {
+    .movies-lan h1 {
+      font-size: 1.8rem;
+    }
+
+    .movies-pop h2,
+    .series h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0; // Corrigido: aplicar na home-page diretamente
+
+    .movies-lan h1 {
+      font-size: 1.4rem;
+    }
+
+    .movies-pop h2,
+    .series h2 {
+      font-size: 1.3rem;
+    }
 
     .movies-lan,
     .movies-pop,
     .series {
-
-        h1,
-        h2 {
-            color: var(--text-color);
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 2rem;
-            position: relative;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 100px;
-        }
-
+      padding: 10px; // Mais limpo e eficaz
     }
-    .series{
-        margin-bottom: 100px;
+  }
+
+  @media (max-width: 480px) {
+    .movies-lan h1 {
+      font-size: 1.3rem;
     }
 
-    // Media queries para responsividade
-    @media (max-width: 1024px) {
-        .movies-lan h1 {
-            font-size: 1.8rem; // Ajusta o tamanho da fonte para telas de até 1024px
-        }
-
-        .movies-pop h2,
-        .series h2 {
-            font-size: 1.4rem; // Ajusta o tamanho da fonte para títulos em telas de até 1024px
-        }
+    .movies-pop h2,
+    .series h2 {
+      font-size: 1.2rem;
     }
 
-    @media (max-width: 768px) {
-        .movies-lan h1 {
-            font-size: 1.6rem; // Ajuste adicional para tablets
-        }
-
-        .movies-pop h2,
-        .series h2 {
-            font-size: 1.3rem; // Tamanho da fonte mais ajustado para tablets
-        }
-
-        .movies-lan,
-        .movies-pop,
-        .series {
-            padding: 0 10px; // Reduz o padding para dar mais espaço útil em telas menores
-        }
+    .movies-lan,
+    .movies-pop,
+    .series {
+      padding: 0 5px;
     }
-
-    @media (max-width: 480px) {
-        .movies-lan h1 {
-            font-size: 1.4rem; // Tamanho da fonte menor para dispositivos móveis
-        }
-
-        .movies-pop h2,
-        .series h2 {
-            font-size: 1.2rem; // Ajuste do tamanho da fonte para dispositivos móveis
-        }
-
-        .movies-lan,
-        .movies-pop,
-        .series {
-            padding: 0 5px; // Mais espaço em telas muito pequenas
-        }
-    }
+  }
 }
-
-

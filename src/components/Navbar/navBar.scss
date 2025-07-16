@@ -13,14 +13,16 @@
         gap: 10px;
     }
 
-    
-    .page-title, .menu-icon {
+
+    .page-title,
+    .menu-icon {
         color: var(--navbar-text);
         font-weight: bold;
     }
 
     .page-title {
         font-size: 22px;
+
         @media (max-width: 600px) {
             font-size: 18px; // Ajuste de tamanho de fonte para telas menores
         }
@@ -31,14 +33,14 @@
     }
 
     .theme-toggle {
-    margin-left: 1rem;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--navbar-text);
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
+        margin-left: 1rem;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--navbar-text);
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
 }
 
 .drawer-menu {
@@ -47,6 +49,15 @@
     border-radius: 12px;
     background: linear-gradient(135deg, rgba(68, 39, 0, 0.658) 0%, rgba(236, 171, 28, 0.2) 100%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+        width: 80vw; // tablets
+    }
+
+    @media (max-width: 600px) {
+        width: 100vw; // celulares
+        border-radius: 0; // opcional: remove bordas para ocupar tela inteira
+    }
 
     .drawer-header {
         background-color: rgb(255, 177, 8);
@@ -64,6 +75,7 @@
             width: 100%;
             font-size: 1rem; // Ajuste para telas menores
         }
+
     }
 
     .drawer-itens {
@@ -102,7 +114,7 @@
 
         @media (max-width: 600px) {
             font-size: 1rem; // Ajuste para fontes menores em dispositivos móveis
-            padding: 10px;  // Ajusta o espaçamento para caber melhor em telas menores
+            padding: 10px; // Ajusta o espaçamento para caber melhor em telas menores
         }
     }
 

@@ -1,10 +1,9 @@
 .serie-carousel {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    position: relative;
+    align-items: center;
     width: 100%;
+    position: relative;
 
     .carousel-control {
         background: transparent;
@@ -30,6 +29,7 @@
             right: 45px;
         }
     }
+
     .carousel-content {
         display: flex;
         align-items: center;
@@ -78,44 +78,66 @@
             transform: scale(1.05);
         }
     }
-}
 
-// Media Queries para ajustar a responsividade
-@media (max-width: 768px) {
-    .carousel-control {
-        font-size: 20px; // Reduz o tamanho dos controles em telas menores
-    }
+    // Media Queries para ajustar a responsividade
+    @media (max-width: 768px) {
 
-    .carousel-content {
-        width: 100%; // Ajusta o conteúdo para ocupar toda a largura da tela
+        .carousel-control {
+            font-size: 20px;
 
-        .serie-card {
-            // Corrigido para série
-            margin: 0 5px; // Menos margem em telas menores
+            &.left {
+                left: 10px;
+                font-size: 30px;
+            }
+
+            &.right {
+                right: 10px;
+                font-size: 30px;
+            }
+        }
+
+        .carousel-content {
+            width: 100%;
+
+            .serie-card {
+                margin: 0 5px;
+            }
+        }
+
+        .more-button {
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
         }
     }
 
-    .more-button {
-        bottom: 10px;
-        right: 10px;
-        font-size: 14px;
-    }
-}
+    @media (max-width: 480px) {
+        .carousel-control {
+            &.left {
+                left: 10px;
+                font-size: 25px;
+            }
 
-@media (max-width: 480px) {
-    .carousel-control {
-        font-size: 18px; // Reduz ainda mais o tamanho em telas muito pequenas
-    }
+            &.right {
+                right: 10px;
+                font-size: 25px;
+            }
 
-    .carousel-content {
-        .serie-card {
-            // Corrigido para série
-            margin: 0 3px; // Margens bem pequenas em telas pequenas
+            font-size: 18px;
         }
-    }
 
-    .more-button {
-        padding: 8px;
-        font-size: 12px; // Botão menor em telas muito pequenas
+        .carousel-content {
+            width: 80%;
+
+            .serie-card {
+                margin: 0 3px;
+            }
+        }
+
+        .more-button {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+
     }
 }

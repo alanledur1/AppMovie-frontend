@@ -154,7 +154,8 @@ body, html {
   align-items: center;
   gap: 10px;
 }
-.navbar .page-title, .navbar .menu-icon {
+.navbar .page-title,
+.navbar .menu-icon {
   color: var(--navbar-text);
   font-weight: bold;
 }
@@ -185,6 +186,17 @@ body, html {
   border-radius: 12px;
   background: linear-gradient(135deg, rgba(68, 39, 0, 0.658) 0%, rgba(236, 171, 28, 0.2) 100%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .drawer-menu {
+    width: 80vw;
+  }
+}
+@media (max-width: 600px) {
+  .drawer-menu {
+    width: 100vw;
+    border-radius: 0;
+  }
 }
 .drawer-menu .drawer-header {
   background-color: rgb(255, 177, 8);

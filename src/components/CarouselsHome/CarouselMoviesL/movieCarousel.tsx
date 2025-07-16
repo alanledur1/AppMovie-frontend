@@ -20,9 +20,9 @@ export default function MovieCarousel({ movies = [], limit = 10 }: MovieCarousel
     useEffect(() => {
         const updateItemsPerPage = () => {
             if (window.innerWidth <= 480) {
-                setItemPerPage(1); // Shows 1 item at a time on small screens
+                setItemPerPage(2); // Shows 1 item at a time on small screens
             } else if (window.innerWidth <= 768) {
-                setItemPerPage(2); // Shows 2 items at a time on medium screens
+                setItemPerPage(3); // Shows 2 items at a time on medium screens
             } else if (window.innerWidth <= 1024) {
                 setItemPerPage(3); // Shows 3 items at a time on tablets
             } else {
