@@ -42,18 +42,6 @@ export default function SerieCard({ serie, className }: SerieCardProps) {
                             rating={serie.vote_average}
                         />
                     }
-                    <div className="hidden-content">
-                        {serie.overview &&
-                            <p className="description">
-                                {serie.overview.length > 100
-                                    ? `${serie.overview.substring(0, 100)}...`
-                                    : serie.overview}
-                            </p>
-                        }
-                        <button className="btn-default">
-                            Ver mais
-                        </button>
-                    </div>
                 </div>
             </div>
         </li>

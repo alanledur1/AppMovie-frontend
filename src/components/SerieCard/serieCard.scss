@@ -31,46 +31,7 @@
             color: #f1f5f9;
             margin-bottom: 6px;
         }
-
-        .hidden-content {
-            color: #f1f5f9;
-            font-size: 12px;
-            margin-top: 8px;
-            height: 0px;
-            opacity: 0;
-            transition: all .6s;
-
-            .btn-default {
-                background: #f1f5f9;
-                border: none;
-                color: #333;
-                margin-top: 10px;
-                padding: 6px 8px;
-                border-radius: 10px;
-                cursor: pointer;
-                width: 100%;
-            }
-        }
     }
-
-/*     &:hover {
-        cursor: pointer;
-        .serie-poster img {
-            opacity: 0.5;
-        }
-
-        .hidden-content {
-            opacity: 1;
-        }
-
-        .serie-infos:has(.description) .hidden-content{
-            height: 100px;
-        }
-
-        .serie-infos:not(:has(.description)) .hidden-content {
-            height: 50px;
-        }
-    } */
 }
 
 
@@ -86,13 +47,6 @@
             .serie-title {
                 font-size: 14px; /* Aumenta o tamanho da fonte para melhorar legibilidade */
                 margin-bottom: 0px;
-            }
-
-            .hidden-content {
-                font-size: 11px; /* Fonte um pouco maior para melhor leitura */
-                .btn-default {
-                    padding: 4px 6px; /* Botão menor */
-                }
             }
         }
     }

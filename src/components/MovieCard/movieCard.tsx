@@ -53,16 +53,6 @@ export default function MovieCard({ movie, variant }: MovieCardProps) {
                         />
                     }
                     <div className='hidden-content'>
-                        {movie.overview && 
-                            <p className='description'>
-                                {movie.overview.length > 100 
-                                    ? `${movie.overview.substring(0, 100)}...` 
-                                    : movie.overview}
-                            </p>
-                        }
-                        <button className="btn-default">
-                            Ver mais
-                        </button>
                     </div>
                 </div>
             </div>
